@@ -1,16 +1,20 @@
 import React, { FC } from "react";
-import { View, Text, Button } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
+import { useTailwind } from "tailwind-rn";
 import { RouteNavigation } from "../../types";
 
 export const Home: FC<RouteNavigation> = ({ navigation }) => {
+  const tailwind = useTailwind();
+
   return (
     <View>
-      <Text>Home</Text>
+      <Text style={tailwind("pt-12 text-red-800")}>Home</Text>
 
-      <Button
-        title="Go to Login"
-        onPress={() => navigation.navigate('Login')}
-      />
+      <TouchableOpacity
+        style={tailwind("pt-8")}
+        onPress={() => navigation.navigate("Login")}>
+        <Text>Go to Login</Text>
+      </TouchableOpacity>
     </View>
   );
 };
