@@ -9,7 +9,7 @@
     "ios": "expo start --ios",
     "build:tailwind": "tailwindcss --input input.css --output tailwind.css --no-autoprefixer && tailwind-rn",
     "dev:tailwind": "concurrently \"tailwindcss --input input.css --output tailwind.css --no-autoprefixer --watch\" \"tailwind-rn --watch\"",
-    "publish": "build:tailwind && expo publish",
+    "publish:expo": "build:tailwind && expo publish",
     "test": "jest",
     "lint:eslint": "eslint",
     "lint:ts": "tsc -p tsconfig.json --noEmit"
