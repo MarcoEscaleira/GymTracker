@@ -1,29 +1,19 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TailwindProvider } from "tailwind-rn";
+import { StackNavigator } from "./src/router";
 import utilities from "./tailwind.json";
-import { Home, Login } from "./src/views";
-
-const Stack = createNativeStackNavigator();
+import useAuthProvider from "./src/hooks/useAuth";
 
 export default function App() {
+  const [initialLoading] = useAuthProvider();
+
+  if (initialLoading) return null;
+
   return (
     <TailwindProvider utilities={utilities}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen
-            name="Home"
-            options={{
-              title: "Home",
-            }}>
-            {(props) => <Home {...props} />}
-          </Stack.Screen>
-
-          <Stack.Screen name="Login" options={{ title: "Login" }}>
-            {(props) => <Login {...props} />}
-          </Stack.Screen>
-        </Stack.Navigator>
+        <StackNavigator />
       </NavigationContainer>
     </TailwindProvider>
   );
