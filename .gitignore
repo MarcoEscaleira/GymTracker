@@ -65,4 +65,8 @@ web-build/
 
 GoogleService-Info.plist
 .env
-.env.development
+
+tailwind.css
+tailwind.json
+
+coverage

@@ -5,4 +5,5 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   name: "Gym Tracker",
   privacy: "public",
   slug: "gym-tracker",
+  scheme: "com.marcoescaleira.gymtracker",
 });
