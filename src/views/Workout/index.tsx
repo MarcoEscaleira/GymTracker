@@ -3,7 +3,7 @@ import { Text, SafeAreaView } from "react-native";
 import { useTailwind } from "tailwind-rn";
 import { useAuth } from "../../hooks/useAuth";
 
-export const Home: FC = () => {
+export const Workout: FC = () => {
   const tw = useTailwind();
   const { user } = useAuth((state) => ({
     signOut: state.signOut,
@@ -14,9 +14,9 @@ export const Home: FC = () => {
 
   return (
     <SafeAreaView style={tw("h-full justify-between items-center")}>
-      <Text>Hello home page</Text>
+      <Text>Hello workout page</Text>
     </SafeAreaView>
   );
 };
 
-export default Home;
+export default Workout;

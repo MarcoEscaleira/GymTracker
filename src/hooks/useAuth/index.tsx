@@ -26,7 +26,6 @@ export const useAuth = create<UserState>((set) => ({
   signOut: null,
 }));
 
-// TODO: add these to .env file
 const googleConfig: Partial<GoogleAuthRequestConfig> = {
   iosClientId: env.IOS_CLIENT_ID,
   expoClientId: env.EXPO_CLIENT_ID,

@@ -1,29 +1,54 @@
 import React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Home, Login } from "../views";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { Home, Profile, Workout } from "../views";
 import { useAuth } from "../hooks/useAuth";
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export const StackNavigator = () => {
   const user = useAuth((state) => state.user);
 
   return (
-    <Stack.Navigator
-      initialRouteName="Login"
+    <Tab.Navigator
       screenOptions={{
         headerShown: false,
+        tabBarStyle: {
+          display: user ? "flex" : "none",
+        },
       }}>
-      {user ? (
-        <Stack.Screen name="Home">
-          {(props) => <Home {...props} />}
-        </Stack.Screen>
-      ) : (
-        <Stack.Screen name="Login">
-          {(props) => <Login {...props} />}
-        </Stack.Screen>
+      {user && (
+        <>
+          <Tab.Screen
+            name="Home"
+            component={Home}
+            options={{
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons name="home" size={size} color={color} />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Workout"
+            component={Workout}
+            options={{
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons name="weight-lifter" size={size} color={color} />
+              ),
+            }}
+          />
+        </>
       )}
-    </Stack.Navigator>
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="person" size={size} color={color} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
   );
 };
 
