@@ -3,6 +3,27 @@ on:
     branches:
       - main
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🏗 Setup repo
+        uses: actions/checkout@v2
+
+      - name: 🏗 Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+          cache: yarn
+
+      - name: 📦 Install dependencies
+        run: yarn install
+
+      - name: 🎨 Bundle tailwind css
+        run: yarn build:tailwind
+
+      - name: 🤖 Linting
+        run: yarn lint
+
   publish:
     runs-on: ubuntu-latest
     steps:
@@ -23,9 +44,6 @@ jobs:
 
       - name: 📦 Install dependencies
         run: yarn install
-
-      - name: 🤖 Linting
-        run: yarn lint
 
       - name: 🎨 Bundle tailwind css
         run: yarn build:tailwind
