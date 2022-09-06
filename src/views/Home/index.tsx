@@ -14,7 +14,7 @@ export const Home: FC = () => {
 
   return (
     <SafeAreaView style={tw("h-full justify-between items-center")}>
-      <Text>Hello home page</Text>
+      <Text>Hello home page2</Text>
     </SafeAreaView>
   );
 };

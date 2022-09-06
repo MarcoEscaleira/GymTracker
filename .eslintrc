@@ -8,17 +8,14 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "prettier/react",
+    "prettier",
     "plugin:react/recommended",
     "plugin:react-native/all",
     "plugin:jsx-a11y/strict",
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
-    "plugin:jest/recommended",
-    "@react-native-community"
+    "plugin:jest/recommended"
   ],
   "plugins": [
     "react-hooks"
@@ -40,7 +37,8 @@
       "syntax"
     ],
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    "import/namespace": "off"
   },
   "env": {
     "jest": true,

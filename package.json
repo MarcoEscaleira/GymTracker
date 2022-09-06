@@ -11,6 +11,7 @@
     "dev:tailwind": "concurrently \"tailwindcss --input input.css --output tailwind.css --no-autoprefixer --watch\" \"tailwind-rn --watch\"",
     "publish:expo": "yarn build:tailwind && expo publish",
     "test": "jest",
+    "lint": "yarn lint:eslint && yarn lint:ts",
     "lint:eslint": "eslint",
     "lint:ts": "tsc -p tsconfig.json --noEmit"
   },
@@ -45,7 +46,6 @@
     "@types/jest": "^28.1.6",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.67.6",
-    "@typescript-eslint/eslint-plugin": "^5.32.0",
     "@typescript-eslint/parser": "^5.32.0",
     "concurrently": "^7.3.0",
     "cross-env": "^7.0.3",
